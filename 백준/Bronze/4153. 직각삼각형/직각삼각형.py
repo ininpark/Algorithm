@@ -1,22 +1,14 @@
-MAX = 0
-num = []
 while True:
     A,B,C = map(int,input().split())
-    if A == 0 and B ==0 and C == 0:
+    if A == 0 and B == 0 and C ==0:
         break
     else:
-        num.append(A)
-        num.append(B)
-        num.append(C)
-        for i in num:
-            if MAX < i :
-                MAX = i
-            else:
-                continue
-        num.remove(MAX)
-        if num[0]**2 + num[1]**2 == MAX**2:
-            print('right')
+        MAX = max(A,B,C)
+        if MAX == A:
+            result = B**2 + C**2 == A**2
+        elif MAX == B:
+            result = A**2 + C**2 == B**2
         else:
-            print('wrong')
-    num = []
-    MAX = 0
+            result = A**2 + B**2 == C**2
+
+    print( 'right' if result  else 'wrong')
